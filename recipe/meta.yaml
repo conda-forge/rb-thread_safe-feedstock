@@ -1,5 +1,7 @@
 {% set name = "thread_safe" %}
 {% set version = "0.3.6" %}
+{% set hash = "9ed7072821b51c57e8d6b7011a8e282e25aeea3a4065eab326e43f66f063b05a" %}
+{% set build = 2 %}
 
 package:
   name: rb-{{ name|lower }}
@@ -7,11 +9,11 @@ package:
 
 source:
   url: https://rubygems.org/downloads/{{ name }}-{{ version }}.gem
-  sha256: 9ed7072821b51c57e8d6b7011a8e282e25aeea3a4065eab326e43f66f063b05a
+  sha256: {{ hash }}
 
 build:
   noarch: generic
-  number: 1
+  number: {{ build }}
   script:
     - gem install -N -l -V --norc --ignore-dependencies {{ name }}-{{ version }}.gem
     - gem unpack {{ name }}-{{ version }}.gem
@@ -40,3 +42,4 @@ extra:
   recipe-maintainers:
     - sodre
     - jdmarques
+    - rudispr
